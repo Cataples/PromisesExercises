@@ -31,7 +31,7 @@ const put = ( url, data ) => {
         .catch( err => console.log( err ) );
 }
 
-const delet = url => {
+const deleteItem = url => {
     return fetch( url, {
         method: "DELETE"
     } ).then( data => data.json() )
@@ -52,4 +52,4 @@ const patch = ( url, data ) => {
         .catch( err => console.log( err ) );
 }
 
-export { get, post, put, delet, patch };
+export { get, post, put, deleteItem, patch };
