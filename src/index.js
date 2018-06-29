@@ -128,17 +128,21 @@ const displayUserDetails = () => {
         .finally( () => console.log( "spinner hidden class added" ) );
 };
 
-displayUserDetails();
+//displayUserDetails();
 
 // Async/Await
 async function asyncDisplayUserDetails() {
     console.log( "spinner hidden class removed" );
     try {
-        const fetchUser = await fetch( "/api/users/1" );
-        const jsonUserDetails = await fetchUser.json();
-        const jsonUserDetailsAge = await jsonUserDetails.age;
-        const jsonUserDetailsFirstName = await jsonUserDetails.firstName;
-        const jsonUserDetailsLastName = await jsonUserDetails.lastName;
+        const fetchUserAge = await fetch( "/api/users/1" );
+        const jsonUserDetailsByAge = await fetchUserAge.json();
+        const jsonUserDetailsAge = await jsonUserDetailsByAge.age;
+        const fetchUserFirstName = await fetch( "/api/users/1" );
+        const jsonUserDetailsByFirstName = await fetchUserFirstName.json();
+        const jsonUserDetailsFirstName = await jsonUserDetailsByFirstName.firstName;
+        const fetchUserLastName = await fetch( "/api/users/1" );
+        const jsonUserDetailsByLastName = await fetchUserLastName.json();
+        const jsonUserDetailsLastName = await jsonUserDetailsByLastName.lastName;
         console.log( jsonUserDetailsLastName, jsonUserDetailsFirstName, jsonUserDetailsAge );
     } catch ( err ) {
         console.log( err );
